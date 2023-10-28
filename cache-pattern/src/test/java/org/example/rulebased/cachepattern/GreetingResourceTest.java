@@ -1,4 +1,4 @@
-package org.example.rulebased;
+package org.example.rulebased.cachepattern;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;

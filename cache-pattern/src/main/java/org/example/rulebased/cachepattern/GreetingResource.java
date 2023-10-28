@@ -1,4 +1,4 @@
-package org.example.rulebased;
+package org.example.rulebased.cachepattern;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

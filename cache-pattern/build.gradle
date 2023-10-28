@@ -8,7 +8,12 @@ repositories {
     mavenLocal()
 }
 
+ext {
+    droolsVersion = '8.44.0.Final'
+}
+
 dependencies {
+    implementation 'io.quarkus:quarkus-smallrye-openapi'
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-redis-client'
     implementation 'io.quarkus:quarkus-resteasy-reactive-jackson'
@@ -16,9 +21,14 @@ dependencies {
     implementation 'io.quarkus:quarkus-resteasy-reactive'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
+
+    // drools
+    implementation group: 'org.drools', name: 'drools-mvel', version: droolsVersion
+    implementation group: 'org.drools', name: 'drools-xml-support', version: droolsVersion
+    implementation group: 'org.drools', name: 'drools-ruleunits-engine', version: droolsVersion
 }
 
-group 'org.example.rulebased'
+group 'org.example.rulebased.cachepattern'
 version '1.0.0-SNAPSHOT'
 
 java {

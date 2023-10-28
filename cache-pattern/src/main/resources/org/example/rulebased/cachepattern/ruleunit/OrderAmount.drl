@@ -1,0 +1,9 @@
+package org.example.rulebased.cachepattern.ruleunit;
+unit OrderAmountRuleUnit;
+
+
+rule "sample"
+    when
+    then
+        System.out.println("");
+end
