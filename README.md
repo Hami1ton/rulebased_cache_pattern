@@ -5,6 +5,7 @@ Quarkus × Drools × Redis
 ## env 
 
 - wsl 
+- openjdk 17
 - Quarkus 3.4.3
 - Drools 8.44.0.Final
 - Redis 7.2.2

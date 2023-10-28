@@ -5,5 +5,9 @@ unit OrderAmountRuleUnit;
 rule "sample"
     when
     then
-        System.out.println("");
+        System.out.println("Calculated!");
+end
+
+query FindOrderAmount
+    $o: /orderAmount
 end

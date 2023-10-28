@@ -19,25 +19,25 @@ public class ProductResource {
     ProductService service;
 
     @GET
-    public Uni<List<String>> keys() {
+    public Uni<List<String>> productIds() {
         return service.keys();
     }
 
     @POST
     public Product create(Product product) {
-        service.set(product.key, product);
+        service.set(product.productId, product);
         return product;
     }
 
     @GET
-    @Path("/{key}")
-    public Product get(String key) {
-        return service.get(key);
+    @Path("/{productId}")
+    public Product get(String productId) {
+        return service.get(productId);
     }
 
     @DELETE
-    @Path("/{key}")
-    public Uni<Void> delete(String key) {
-        return service.del(key);
+    @Path("/{productId}")
+    public Uni<Void> delete(String productId) {
+        return service.del(productId);
     }
 }

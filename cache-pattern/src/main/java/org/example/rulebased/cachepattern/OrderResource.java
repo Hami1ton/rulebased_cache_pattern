@@ -1,16 +1,21 @@
 package org.example.rulebased.cachepattern;
 
-import jakarta.ws.rs.GET;
+import org.example.rulebased.cachepattern.ruleunit.Order;
+import org.example.rulebased.cachepattern.ruleunit.OrderAmount;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 
 
 @Path("/order")
 public class OrderResource {
 
-    @GET
-    @Path("/product")
-    public String product() {
-        return "Hello from RESTEasy Reactive";
+    @Inject
+    OrderAmountCalculator calculator;
+
+    @POST
+    public OrderAmount product(Order order) {
+        return calculator.calculate(order);
     }
 
 }

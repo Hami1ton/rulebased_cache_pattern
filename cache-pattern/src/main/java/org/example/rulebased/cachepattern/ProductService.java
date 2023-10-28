@@ -22,20 +22,20 @@ public class ProductService {
         keyCommands = reactive.key();  
     }
 
-    Product get(String key) {
-        Product value = productCommands.get(key); 
+    Product get(String productId) {
+        Product value = productCommands.get(productId); 
         if (value == null) {
             return null;
         }
         return value;
     }
 
-    void set(String key, Product product) {
-        productCommands.set(key, product); 
+    void set(String productId, Product product) {
+        productCommands.set(productId, product); 
     }
 
-    Uni<Void> del(String key) {
-        return keyCommands.del(key).replaceWithVoid();
+    Uni<Void> del(String productId) {
+        return keyCommands.del(productId).replaceWithVoid();
     }
 
     Uni<List<String>> keys() {
