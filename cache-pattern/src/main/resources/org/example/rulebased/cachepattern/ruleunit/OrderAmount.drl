@@ -6,8 +6,9 @@ rule "OrderAmount Calculation"
     when
         $o: /order;
     then
-        // System.out.println($o);
-        int value = $o.orderQuantity() * 0;
+        // System.out.println($o.productId());
+        int price = productCacheService.get($o.productId()).price;
+        int value = $o.orderQuantity() * price;
         orderAmount.append(new OrderAmount(value));
 end
 

@@ -3,6 +3,8 @@ package org.example.rulebased.cachepattern;
 
 import java.util.List;
 import org.example.rulebased.cachepattern.ruleunit.Product;
+import org.example.rulebased.cachepattern.ruleunit.ProductCacheService;
+
 import io.quarkus.redis.datasource.ReactiveRedisDataSource;
 import io.quarkus.redis.datasource.RedisDataSource;
 import io.quarkus.redis.datasource.keys.ReactiveKeyCommands;
@@ -12,18 +14,19 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 
 @ApplicationScoped
-public class ProductService {
+public class ProductService implements ProductCacheService{
 
     private ReactiveKeyCommands<String> keyCommands; 
     private ValueCommands<String, Product> productCommands; 
 
     public ProductService(RedisDataSource ds, ReactiveRedisDataSource reactive) { 
-        productCommands = ds.value(Product.class); 
+        productCommands = ds.value(Product.class);
         keyCommands = reactive.key();  
     }
 
-    Product get(String productId) {
-        Product value = productCommands.get(productId); 
+    @Override
+    public Product get(String productId) {
+        Product value = productCommands.get(productId);
         if (value == null) {
             return null;
         }
@@ -41,5 +44,4 @@ public class ProductService {
     Uni<List<String>> keys() {
         return keyCommands.keys("*"); 
     }
-    
 }
