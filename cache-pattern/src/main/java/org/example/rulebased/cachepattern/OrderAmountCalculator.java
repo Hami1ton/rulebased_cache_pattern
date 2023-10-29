@@ -5,7 +5,6 @@ import org.drools.ruleunits.api.RuleUnitProvider;
 import org.example.rulebased.cachepattern.ruleunit.Order;
 import org.example.rulebased.cachepattern.ruleunit.OrderAmount;
 import org.example.rulebased.cachepattern.ruleunit.OrderAmountRuleUnit;
-
 import jakarta.enterprise.context.ApplicationScoped;
 
 
@@ -28,7 +27,7 @@ public class OrderAmountCalculator {
         }
         instance.close();
 
-        return new OrderAmount(0);
+        return orderAmount;
     }
 
 }

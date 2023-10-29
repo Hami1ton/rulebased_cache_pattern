@@ -26,6 +26,14 @@ dependencies {
     implementation group: 'org.drools', name: 'drools-mvel', version: droolsVersion
     implementation group: 'org.drools', name: 'drools-xml-support', version: droolsVersion
     implementation group: 'org.drools', name: 'drools-ruleunits-engine', version: droolsVersion
+
+    configurations.all {
+        // quarkusとmvelとの依存関係競合を解決するための設定
+        // com.github.javaparser:javaparser-core:3.24.2 -> 3.25.4
+        resolutionStrategy {
+            force 'com.github.javaparser:javaparser-core:3.24.2'
+        }
+    }
 }
 
 group 'org.example.rulebased.cachepattern'

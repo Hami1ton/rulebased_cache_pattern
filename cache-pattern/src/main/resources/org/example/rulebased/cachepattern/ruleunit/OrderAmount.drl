@@ -2,12 +2,15 @@ package org.example.rulebased.cachepattern.ruleunit;
 unit OrderAmountRuleUnit;
 
 
-rule "sample"
+rule "OrderAmount Calculation"
     when
+        $o: /order;
     then
-        System.out.println("Calculated!");
+        // System.out.println($o);
+        int value = $o.orderQuantity() * 0;
+        orderAmount.append(new OrderAmount(value));
 end
 
 query FindOrderAmount
-    $o: /orderAmount
+    $o: /orderAmount;
 end
