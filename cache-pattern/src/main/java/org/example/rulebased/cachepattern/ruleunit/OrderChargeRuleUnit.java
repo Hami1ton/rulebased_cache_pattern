@@ -4,15 +4,15 @@ import org.drools.ruleunits.api.DataStream;
 import org.drools.ruleunits.api.RuleUnitData;
 
 
-public class OrderAmountRuleUnit implements RuleUnitData {
+public class OrderChargeRuleUnit implements RuleUnitData {
 
     private DataStream<Order> order;
 
-    private DataStream<OrderAmount> orderAmount;
+    private DataStream<OrderCharge> orderCharge;
 
     private ProductCacheService productCacheService;
 
-    public OrderAmountRuleUnit(ProductCacheService productCacheService) {
+    public OrderChargeRuleUnit(ProductCacheService productCacheService) {
         this.productCacheService = productCacheService;
     }
 
@@ -24,12 +24,12 @@ public class OrderAmountRuleUnit implements RuleUnitData {
         return order;
     }
 
-    public void setOrderAmount(DataStream<OrderAmount> orderAmount) {
-        this.orderAmount = orderAmount;
+    public void setOrderCharge(DataStream<OrderCharge> orderCharge) {
+        this.orderCharge = orderCharge;
     }
 
-    public DataStream<OrderAmount> getOrderAmount() {
-        return orderAmount;
+    public DataStream<OrderCharge> getOrderCharge() {
+        return orderCharge;
     }
 
     public ProductCacheService getProductCacheService() {

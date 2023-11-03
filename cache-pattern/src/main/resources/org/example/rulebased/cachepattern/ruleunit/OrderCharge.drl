@@ -1,17 +1,17 @@
 package org.example.rulebased.cachepattern.ruleunit;
-unit OrderAmountRuleUnit;
+unit OrderChargeRuleUnit;
 
 
-rule "OrderAmount Calculation"
+rule "OrderCharge Calculation"
     when
         $o: /order;
     then
         // System.out.println($o.productId());
         int price = productCacheService.get($o.productId()).price;
         int value = $o.orderQuantity() * price;
-        orderAmount.append(new OrderAmount(value));
+        orderCharge.append(new OrderCharge(value));
 end
 
-query FindOrderAmount
-    $o: /orderAmount;
+query FindOrderCharge
+    $o: /orderCharge;
 end

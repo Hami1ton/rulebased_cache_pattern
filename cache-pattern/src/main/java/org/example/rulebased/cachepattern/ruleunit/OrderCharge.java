@@ -1,4 +1,4 @@
 package org.example.rulebased.cachepattern.ruleunit;
 
 
-public record OrderAmount(int value) {}
+public record OrderCharge(int value) {}
