@@ -17,7 +17,14 @@ end
 6_[Client]
 8_[(Redis)]
 
-6_-->5_;
+6_-->|"call order api"|5_;
+5_-->|"insert order / execute rule"|0_;
+4_-->|"implemtents"|2_;
+4_-->|"search product"|8_;
+1_-->|"call for data load"|2_;
+1_-->|"read orders"|3_;
+1_-->|"calculate charges"|1_;
+
 ```
 
 Sample application for online sales ordering service using Quarkus, Drools, and Redis.
