@@ -14,6 +14,8 @@ subgraph Quarkus App
     5_[Order Resource]
 end
 
+6_[Client]
+8_[(Redis)]
 
 ```
 
