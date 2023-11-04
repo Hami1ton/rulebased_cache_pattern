@@ -28,7 +28,7 @@ You can call APIs from:
 http://localhost:8080/q/swagger-ui
 
 
-## Running in Docker
+## Running in Docker Containers
 
 As the before section, make sure the `redis:7.2.2` image is pulled. 
 You can build the quarkus application docker image by:
