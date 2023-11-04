@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+
+  web-service:
+    image: quarkus/cache-pattern-jvm
+    container_name: cache-pattern-jvm
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      REDIS_HOST: redis-service
+
+  redis-service:
+    image: redis:7.2.2
+    container_name: redis_quarkus_test
+    restart: always
